@@ -19,20 +19,20 @@ if(isDeveloping){
     webpackConfig.entry.app.unshift('webpack-hot-middleware/client');
     const compiler = webpack(webpackConfig);
     const devMiddleware = require('webpack-dev-middleware'); // eslint-disable-line
-    const middlewareCpoy = devMiddleware(compiler, {
+    const middleware = devMiddleware(compiler, {
         noInfo: false,
         publicPath: webpackConfig.output.publicPath,
         headers: { "Access-Control-Allow-Origin": "*" },
         stats: {colors: true}
     })
-    app.use(middlewareCpoy);
+    app.use(middleware);
 
     const hotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line
     app.use(hotMiddleware(compiler, {
         log: console.log
     }));
     app.get('*', (req, res) => {
-        res.write(middlewareCpoy.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')))
+        res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')))
         res.end()
     })
 }else{
