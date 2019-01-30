@@ -3,7 +3,6 @@
 const path = require('path')
 const compression = require('compression')
 const isDeveloping = process.env.NODE_ENV !== 'production'
-console.log('--------222',process.env.NODE_ENV)
 const port = isDeveloping ? 3000 : process.env.PORT
 
 // Generate webpack config with CLI service
