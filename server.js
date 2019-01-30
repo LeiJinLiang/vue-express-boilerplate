@@ -5,7 +5,6 @@ const compression = require('compression')
 const history = require('connect-history-api-fallback')
 const isDeveloping = process.env.NODE_ENV !== 'production'
 const port = isDeveloping ? 3000 : process.env.PORT
-
 // Generate webpack config with CLI service
 const webpackConfig = require("@vue/cli-service/webpack.config.js");
 
@@ -20,17 +19,22 @@ if(isDeveloping){
     webpackConfig.entry.app.unshift('webpack-hot-middleware/client');
     const compiler = webpack(webpackConfig);
     const devMiddleware = require('webpack-dev-middleware'); // eslint-disable-line
-    app.use(devMiddleware(compiler, {
+    const middlewareCpoy = devMiddleware(compiler, {
         noInfo: false,
         publicPath: webpackConfig.output.publicPath,
         headers: { "Access-Control-Allow-Origin": "*" },
         stats: {colors: true}
-    }));
+    })
+    app.use(middlewareCpoy);
 
     const hotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line
     app.use(hotMiddleware(compiler, {
         log: console.log
     }));
+    app.get('*', (req, res) => {
+        res.write(middlewareCpoy.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')))
+        res.end()
+    })
 }else{
     app.use(compression());
     app.use(express.static(__dirname + '/dist'))

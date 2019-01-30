@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "export NODE_ENV=development && node server",
-    "pro": "vue-cli-service build && export NODE_ENV=production && export PORT=8080&& node server",
+    "prod": "vue-cli-service build && export NODE_ENV=production && export PORT=8080&& node server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"

@@ -8,10 +8,11 @@ Vue.use(Router);
 
 
 
+
 export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: Home },
-    { path : '/page1', component : Page1}
+    { path : '/Product/:code.htm', component : Page1}
   ],
 })
