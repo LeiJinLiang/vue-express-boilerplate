@@ -1,6 +1,6 @@
 <template>
 	<div class="page">
-		This is the homepage.
+		<h1>This is {{msg}}</h1>
 		<nav>
 			<router-link to='/page1'>page1</router-link>
 			<router-link to='/Product/21021.htm'>Product/21021.htm</router-link>
@@ -9,7 +9,13 @@
 </template>
 
 <script>
+	import './home.module.css'
 	export default {
-		name: 'home-page'
+		name: 'home-page',
+		data () {
+		    return {
+		        msg : 'vue express boilerplate'
+			}
+		}
 	}
 </script>

@@ -1,0 +1,9 @@
+body{
+    background-color: pink;
+}
+nav{
+    color: red;
+}
+.page{
+    display: block;
+}
