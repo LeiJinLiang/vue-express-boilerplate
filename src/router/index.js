@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../pages/Home';
-import Page1 from '../pages/Page1'
 
+
+const Home = () => import(/* webpackChunkName: "home" */ '../pages/Home.vue')
+const Page1 = () => import(/* webpackChunkName: "page1" */ '../pages/Page1.vue')
 Vue.use(Router);
+
+
 
 export default new Router({
   mode: 'history',
