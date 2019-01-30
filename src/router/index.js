@@ -6,7 +6,7 @@ import Page1 from '../pages/Page1'
 Vue.use(Router);
 
 export default new Router({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     { path: '/', component: Home },
     { path : '/page1', component : Page1}

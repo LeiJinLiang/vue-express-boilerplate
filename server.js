@@ -2,6 +2,7 @@
 //Detect environment
 const path = require('path')
 const compression = require('compression')
+const history = require('connect-history-api-fallback')
 const isDeveloping = process.env.NODE_ENV !== 'production'
 const port = isDeveloping ? 3000 : process.env.PORT
 
@@ -11,6 +12,7 @@ const webpackConfig = require("@vue/cli-service/webpack.config.js");
 // Create express app
 const express = require("express");
 const app = express();
+app.use(history())
 if(isDeveloping){
     // Configure webpack as middleware
     const webpack = require("webpack");
