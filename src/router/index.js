@@ -4,7 +4,7 @@ import Router from 'vue-router';
 
 const Home = () => import(/* webpackChunkName: "home" */ '../pages/Home.vue')
 const Page1 = () => import(/* webpackChunkName: "page1" */ '../pages/Page1.vue')
-Vue.use(Router);
+Vue.use(Router)
 
 
 
