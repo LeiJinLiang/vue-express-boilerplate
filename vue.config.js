@@ -5,7 +5,7 @@ module.exports = {
                 localIdentName: '[local]-[hash:base64:5]',
                 camelCase: 'only'
             },
-            postcss : {
+            sass : {
 
             }
         }

@@ -10,6 +10,7 @@
 
 <script>
 	import './home.module.css'
+	import './test.scss'
 	export default {
 		name: 'home-page',
 		data () {
